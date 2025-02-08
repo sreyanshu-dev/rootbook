@@ -107,6 +107,6 @@ for device, ip, user_agent in zip(devices, ips, user_agents):
     data = {"device_id": device, "source": "profile", "reason": 1}
     headers["User-Agent"] = user_agent
     headers["X-Forwarded-For"] = ip
-    response = requests.post(f"https://www.facebook.com/{account_id}/report", headers=headers, data=data)
+    response = requests.post(f"https://www.facebook.com/profile.php?id={account_id}/report", headers=headers, data=data)
     print(M+"(Report sent using device ID", device, "and IP address", ip, "with status code", response.status_code, '✅)')
     time.sleep(random.uniform(0.1, 0.5))
